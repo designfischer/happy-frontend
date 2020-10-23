@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import React from 'react'
 import { FiLogOut } from 'react-icons/fi'
+
 import styled from 'styled-components'
 import { CallToAction } from '.'
+import LeafletMap from '../components/Map'
 import { PageWithSideBar } from '../styles/PageContent/styles'
 
 const Orphanages = () => {
@@ -22,7 +24,9 @@ const Orphanages = () => {
                     Muitas crianças estão esperando a sua visita.
                 </SideBarDescription>
             </SideBar>
-            <Map />
+
+            <LeafletMap />
+
         </PageWithSideBar>
     )
 }
@@ -61,7 +65,7 @@ const SideBarDescription = styled.p`
     max-width: 70%;
 `
 
-const Map = styled.div`
+const MapBackground = styled.div`
     background: white;
 `
 
