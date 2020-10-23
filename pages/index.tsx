@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Head from 'next/head'
-import { FiArrowRight } from 'react-icons/fi'
+import { FiSearch, FiLogIn } from 'react-icons/fi'
 import styled from 'styled-components'
 import { PageContainer } from '../styles/PageContent/styles'
 import { DefaultButton } from '../styles/DefaultButton/styles'
@@ -21,11 +21,19 @@ const LandingPage = () => {
                         <Subtitle>
                             Visite orfanatos e mude o dia de muitas crianças
                         </Subtitle>
-                        <Link href="/login">
-                            <CallToAction>
-                                <FiArrowRight size={18} color="#fff" />
-                            </CallToAction>
-                        </Link>
+                        <LandingActions>
+                            <Link href="/orphanages">
+                                <NavigateToMap>
+                                    <span>Ver Orfanatos</span>
+                                    <FiSearch size={18} color="#fff" />
+                                </NavigateToMap>
+                            </Link>
+                            <Link href="/login">
+                                <NavigateToLogin>
+                                    <FiLogIn size={18} color="#fff" />
+                                </NavigateToLogin>
+                            </Link>
+                        </LandingActions>
                     </LeftContainer>
 
                     <RightContainer>
@@ -71,9 +79,29 @@ const Subtitle = styled.h2`
     font-weight: 500;
 `
 
-const CallToAction = styled(DefaultButton)`
-    width: 50px;
+const LandingActions = styled.div`
+    display: flex;
+`
+
+export const CallToAction = styled(DefaultButton)`
     cursor: pointer;
+    margin: 0 10px;
+    color: white;
+
+    span {
+        margin-right: 10px;
+        font-weight: bold;
+    }
+`
+
+const NavigateToMap = styled(CallToAction)`
+    width: 200px;
+`
+
+const NavigateToLogin = styled(CallToAction)`
+    width: 50px;
+
+    background: #f8dc90;
 `
 
 const HeroImage = styled.img`

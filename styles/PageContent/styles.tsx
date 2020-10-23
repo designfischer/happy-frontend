@@ -8,3 +8,8 @@ export const PageContainer = styled.div`
     display: flex;         
     justify-content: center;     
 `
+
+export const PageWithSideBar = styled(PageContainer)`
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+`
