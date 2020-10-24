@@ -48,7 +48,7 @@ const LeafletMap = () => {
             <Marker position={location} icon={mapIcon}>
                 <PopUpStyle closeButton={false} minWidth={240} maxWidth={240}>
                     Lar das Meninas
-                    <Link href="/">
+                    <Link href="/orphanage/template">
                         <NavigateToOrphanage>
                             <FiPlus size={18} />
                         </NavigateToOrphanage>

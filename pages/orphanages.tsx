@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import { CallToAction } from '.'
 import LeafletMap from '../components/Map'
 import { PageWithSideBarAndMap } from '../styles/PageContent/styles'
+import { SideBar, SideBarDescription, SideBarHeader, SideBarLogoImage, SideBarTitle } from '../styles/SideBar/styles'
 
 const Orphanages = () => {
     return (
@@ -22,7 +23,7 @@ const Orphanages = () => {
                 </SideBarDescription>
             </SideBar>
             <LeafletMap />
-            <Link href="/login">
+            <Link href="/orphanage/template">
                 <CreateNewOrphanage>
                     <FiPlus size={25} color="#fff" />
                 </CreateNewOrphanage>
@@ -32,39 +33,6 @@ const Orphanages = () => {
 }
 
 export default Orphanages
-
-const SideBar = styled.aside`
-    display: flex;
-    flex-direction: column;
-
-    padding: 50px;
-`
-
-const SideBarHeader = styled.div`
-    display: flex;
-
-    justify-content: space-between;
-    align-items: center;
-
-    margin-bottom: 50px;
-`
-
-const SideBarLogoImage = styled.img`
-    max-width: 50%;
-    cursor: pointer;
-`
-
-const SideBarTitle = styled.h2`
-    font-size: 24px;
-    line-height: 24px;
-    max-width: 70%;
-    margin-bottom: 60%;
-`
-
-const SideBarDescription = styled.p`
-    font-size: 18px;
-    max-width: 70%;
-`
 
 const CreateNewOrphanage = styled(CallToAction)`
     position: absolute;
