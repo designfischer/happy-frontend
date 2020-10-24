@@ -18,6 +18,6 @@ export const PageWithSideBarAndMap = styled(PageWithSideBar)`
     position: relative;
 
     .leaflet-container {
-        z-index: 5;
+        z-index: 5;        
     }
 `

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import { FiLogOut, FiPlus } from 'react-icons/fi'
+import { FiPlus } from 'react-icons/fi'
 
 import styled from 'styled-components'
 import { CallToAction } from '.'
@@ -12,11 +12,8 @@ const Orphanages = () => {
         <PageWithSideBarAndMap>
             <SideBar>
                 <SideBarHeader>
-                    <SideBarLogoImage src="/assets/logo.svg" />
                     <Link href="/">
-                        <NavigateBack>
-                            <FiLogOut size={10} color="#fff" />
-                        </NavigateBack>
+                        <SideBarLogoImage src="/assets/logo.svg" />                    
                     </Link>
                 </SideBarHeader>
                 <SideBarTitle>Escolha um orfanato no mapa</SideBarTitle>
@@ -29,7 +26,7 @@ const Orphanages = () => {
                 <CreateNewOrphanage>
                     <FiPlus size={25} color="#fff" />
                 </CreateNewOrphanage>
-            </Link>            
+            </Link>
         </PageWithSideBarAndMap>
     )
 }
@@ -54,23 +51,19 @@ const SideBarHeader = styled.div`
 
 const SideBarLogoImage = styled.img`
     max-width: 50%;
+    cursor: pointer;
 `
 
 const SideBarTitle = styled.h2`
     font-size: 24px;
     line-height: 24px;
     max-width: 70%;
-    margin-bottom: 25px;
+    margin-bottom: 60%;
 `
 
 const SideBarDescription = styled.p`
     font-size: 18px;
     max-width: 70%;
-`
-
-const NavigateBack = styled(CallToAction)`
-    width: 30px;
-    height: 30px;
 `
 
 const CreateNewOrphanage = styled(CallToAction)`
