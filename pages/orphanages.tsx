@@ -1,15 +1,15 @@
 import Link from 'next/link'
 import React from 'react'
-import { FiLogOut } from 'react-icons/fi'
+import { FiLogOut, FiPlus } from 'react-icons/fi'
 
 import styled from 'styled-components'
 import { CallToAction } from '.'
 import LeafletMap from '../components/Map'
-import { PageWithSideBar } from '../styles/PageContent/styles'
+import { PageWithSideBarAndMap } from '../styles/PageContent/styles'
 
 const Orphanages = () => {
     return (
-        <PageWithSideBar>
+        <PageWithSideBarAndMap>
             <SideBar>
                 <SideBarHeader>
                     <SideBarLogoImage src="/assets/logo.svg" />
@@ -24,10 +24,13 @@ const Orphanages = () => {
                     Muitas crianças estão esperando a sua visita.
                 </SideBarDescription>
             </SideBar>
-
             <LeafletMap />
-
-        </PageWithSideBar>
+            <Link href="/login">
+                <CreateNewOrphanage>
+                    <FiPlus size={25} color="#fff" />
+                </CreateNewOrphanage>
+            </Link>            
+        </PageWithSideBarAndMap>
     )
 }
 
@@ -65,11 +68,18 @@ const SideBarDescription = styled.p`
     max-width: 70%;
 `
 
-const MapBackground = styled.div`
-    background: white;
-`
-
 const NavigateBack = styled(CallToAction)`
     width: 30px;
     height: 30px;
+`
+
+const CreateNewOrphanage = styled(CallToAction)`
+    position: absolute;
+    z-index: 10;
+
+    right: 50px;
+    bottom: 50px;
+
+    width: 50px;
+    height: 50px;
 `
