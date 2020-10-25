@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import { FiCalendar, FiAlertCircle } from 'react-icons/fi'
+import { FiCalendar, FiAlertCircle, FiMessageSquare } from 'react-icons/fi'
 
 import styled from 'styled-components'
 import { CallToAction } from '..'
@@ -22,16 +22,25 @@ const Orphanages = () => {
                     <Link href="/orphanages">
                         <SideBarLogoImage src="/assets/logo.svg" />
                     </Link>
-                </SideBarHeader>
-                <SideBarTitle>Lar das Meninas</SideBarTitle>
-                <SideBarDescription>Curitiba, Paraná</SideBarDescription>
+                </SideBarHeader>                
             </SideBar>
             <OrphanageProfileContainer>
                 <OrphanageProfileInfo>
                     <OrphanageImage src="https://conteudo.imguol.com.br/c/noticias/6d/2017/09/11/smyllum-park-orfanato-na-escocia-1505135822115_768x433.jpg" />
-                    <OrphanageDescription>
-                        Presta assistência a crianças de 0 a 6 anos.
-                    </OrphanageDescription>
+                    
+                    <OrphanageTitleInfo>
+                        <OrphanageTitle>
+                            Lar das Meninas
+                        </OrphanageTitle>                        
+                        <OrphanageDescription>
+                            Presta assistência a crianças de 0 a 6 anos.
+                        </OrphanageDescription>
+                    </OrphanageTitleInfo>                        
+                        
+                    <OrphanageGeoInfo>
+                        Curitiba, Paraná
+                    </OrphanageGeoInfo>
+                    
                     <OrphanageInstructions>
                         <OrphanageDetails>
                             <FiCalendar size={50} color="#333" />
@@ -42,7 +51,12 @@ const Orphanages = () => {
                             <p>Não atendemos aos fins de semana.</p>                            
                         </OrphanageClose>
                     </OrphanageInstructions>
-                    <OrphanageContact>Entre em contato</OrphanageContact>
+
+                    <OrphanageContact>
+                        <FiMessageSquare size={25} color="#fff"/>
+                        Entre em contato
+                    </OrphanageContact>
+
                 </OrphanageProfileInfo>
             </OrphanageProfileContainer>
         </PageWithSideBarAndMap>
@@ -59,12 +73,14 @@ const OrphanageProfileContainer = styled.main`
 `
 
 const OrphanageProfileInfo = styled.div`
-    width: 50%;
+    max-width: 500px;
+    width: 100%;
     background: white;
     color: #333;    
     border-radius: 30px;
     margin: 50px 0;
     border: 1px solid #D3E2E5;
+    box-shadow: 0px 0px 10px #fff;
 `
 
 const OrphanageImage = styled.img`
@@ -74,13 +90,26 @@ const OrphanageImage = styled.img`
     border-radius: 30px;
 `
 
-const OrphanageDescription = styled.h2`
+const OrphanageTitleInfo = styled.div`
     margin: 25px 50px;
-    font-size: 18px;
+`
+
+const OrphanageTitle = styled.h2`    
+    font-size: 24px;
+    font-weight: 800;
+`
+
+const OrphanageDescription = styled.p`
+    margin: 10px 0;
+`
+
+const OrphanageGeoInfo = styled.p`
+    font-size: 14px;
+    margin: 0 50px;
 `
 
 const OrphanageInstructions = styled.div`
-    margin: 10px 50px;
+    margin: 25px 50px;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -91,7 +120,7 @@ const OrphanageDetails = styled.div`
     padding: 20px;
     border-radius: 10px;
     border: 1px solid #D3E2E5;
-    background: #eff5eb;
+    background:#ebf2f5;
     font-size: 10px;
 
     display: flex;
@@ -109,5 +138,12 @@ const OrphanageClose = styled(OrphanageDetails)`
 `
 
 const OrphanageContact = styled(CallToAction)`
-    justify-self: center;
+    margin-left: 0;
+    height: 90px;
+    border-radius: 30px; 
+    width: 100%;
+
+    svg {
+        margin-right: 25px;
+    }
 `

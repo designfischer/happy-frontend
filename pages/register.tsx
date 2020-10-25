@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import React from 'react'
+import { useRouter } from 'next/router'
+import React, { FormEvent, useState, useEffect } from 'react'
+import InputField from '../components/Input'
+import api from '../services/api'
 import {
-    FormButton,
-    FormInput,
-    FormInputGroup,
-    FormLabel,
+    FormButton,    
     FormLogoImage,
     FormNavitagion,
     FormNavitagionItem,
@@ -16,7 +16,31 @@ import {
     PageLoginRegisterContainer,
 } from '../styles/PageLoginRegister/styles'
 
-const Login = () => {
+const Register = () => {
+
+    const router = useRouter()
+    const [email, setEmail] = useState<string>('')  
+    const [password, setPassword] = useState<string>('')    
+
+    async function handleRegister(event: FormEvent) {
+        event.preventDefault()
+        
+        try {
+            const newUser = await api.post('users', {
+                email,
+                password
+            })
+            alert('Usuário cadastrado com sucesso')
+            router.push('/')
+        } catch(err) {
+            alert(err)
+        }
+    }
+
+    useEffect(() => {
+        console.log(email)
+    }, [email])
+
     return (
         <>
             <Head>
@@ -27,16 +51,25 @@ const Login = () => {
                 <PageLoginRegisterContent>
                     <FormLogoImage src="/assets/logo.svg" />
                     <InitialForm>
-                        <FormInputGroup>
-                            <FormLabel htmlFor="email">Email</FormLabel>
-                            <FormInput id="email" />
-                        </FormInputGroup>
-                        <FormInputGroup>
-                            <FormLabel htmlFor="password">Senha</FormLabel>
-                            <FormInput id="password" />
-                        </FormInputGroup>
-                        <FormButton>Cadastrar</FormButton>
+                        <InputField                             
+                            inputValue={email}
+                            inputID={'email'}
+                            inputTitle={'Email'}
+                            setInputValue={setEmail}
+                            inputType={'text'}
+                        />                        
+                        <InputField 
+                            inputValue={password}
+                            inputID={'password'}
+                            inputTitle={'Senha'}
+                            setInputValue={setPassword}
+                            inputType={'password'}
+                        />
+                        <FormButton
+                            onClick={handleRegister}
+                        >Cadastrar</FormButton>
                     </InitialForm>
+
                     <FormNavitagion>
                         <Link href="/login">
                             <FormNavitagionItem>
@@ -47,10 +80,11 @@ const Login = () => {
                             <FormNavitagionItem>Voltar</FormNavitagionItem>
                         </Link>
                     </FormNavitagion>
+
                 </PageLoginRegisterContent>
             </PageLoginRegisterContainer>
         </>
     )
 }
 
-export default Login
+export default Register
