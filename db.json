@@ -1,12 +1,56 @@
 {
-    "posts": [
-      { "id": 1, "title": "json-server", "author": "typicode" }
-    ],
-    "comments": [
-      { "id": 1, "body": "some comment", "postId": 1 }
-    ],
-    "profile": { "name": "typicode" },
-    "users": [
-      { "email": "rafael@gmail.com", "password": "123" }
-    ]
-  }
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "email": "rafa",
+      "password": "123",
+      "id": "2020-10-26T01:22:47.880Z"
+    },
+    {
+      "email": "rafaelsanfischer@gmail.com",
+      "password": "123",
+      "id": "2020-10-26T01:24:54.024Z"
+    },
+    {
+      "email": "rafsafd",
+      "password": "asfdasf",
+      "id": "2020-10-26T01:27:08.544Z"
+    },
+    {
+      "email": "RAFAEL",
+      "password": "122",
+      "id": "2020-10-26T01:44:50.929Z"
+    },
+    {
+      "email": "RAFAEL",
+      "password": "122",
+      "id": "2020-10-26T01:45:24.103Z"
+    },
+    {
+      "email": "fasdf",
+      "password": "asdfas",
+      "id": "2020-10-26T01:46:57.655Z"
+    },
+    {
+      "email": "fasdf",
+      "password": "asdfas",
+      "id": "2020-10-26T01:47:16.240Z"
+    }
+  ]
+}

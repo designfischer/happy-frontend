@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { FormEvent, useState, useEffect } from 'react'
 import InputField from '../components/Input'
-import api from '../services/api'
+import { user } from '../services'
 import {
     FormButton,    
     FormLogoImage,
@@ -23,24 +23,11 @@ const Register = () => {
     const [password, setPassword] = useState<string>('')    
 
     async function handleRegister(event: FormEvent) {
-        event.preventDefault()
-        
-        try {
-            const newUser = await api.post('users', {
-                email,
-                password
-            })
-            alert('Usuário cadastrado com sucesso')
-            router.push('/')
-        } catch(err) {
-            alert(err)
-        }
+        event.preventDefault()        
+        const response = await user.create({ email, password })
+        if (response.status === 201) router.push('/')
     }
-
-    useEffect(() => {
-        console.log(email)
-    }, [email])
-
+    
     return (
         <>
             <Head>
